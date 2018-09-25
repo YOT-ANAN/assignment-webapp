@@ -88,6 +88,33 @@
       appName() {
         return this.$store.getters.appTitle
       }
-    }
-  }
+    },
+    isAuthenticated() {
+        return (
+          this.$store.getters.getUser !== null &&
+          this.$store.getters.getUser !== undefined
+        );
+    },
+    toolbarItems() {
+        return this.isAuthenticated ? [] : [
+        {
+          icon: "face",
+          title: "Sign Up",
+          link: "/singup"
+        }, {
+          icon: "lock_open",
+          title: "Sign In",
+          link: "/singin"
+        }
+        ];
+    },methods: {
+          userSignOut() {
+            this.$store.dispatch("userSignOut");
+          }
+    },    userSignOut ({commit}) {
+            firebase.auth().signOut()
+            commit('setUser', null)
+            router.push('/signin')
+    } 
+}
 </script>
