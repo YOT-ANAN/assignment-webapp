@@ -1,3 +1,6 @@
 export const state = {
-    appName: 'Assignment'
+    appName: 'Assignment',
+    user: null,
+  error: null,
+  loading: false
   }
