@@ -8,8 +8,12 @@ import 'vuetify/dist/vuetify.css'
 import App from './App'
 import router from './router'
 import { store } from './store'
+import firebase from 'firebase'
+import { firebaseConfig } from './config'
+
 
 Vue.use(Vuetify)
+firebase.initializeApp(firebaseConfig)
 
 Vue.config.productionTip = false
 
