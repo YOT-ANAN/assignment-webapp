@@ -31,5 +31,9 @@ export const actions = {
   },
   autoSignIn ({commit}, payload) {
     commit('setUser', payload)
-   }
+   },userSignOut ({commit}) {
+    firebase.auth().signOut()
+    commit('setUser', null)
+    router.push('/signin')
+  }
 }
