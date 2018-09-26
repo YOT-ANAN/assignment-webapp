@@ -87,8 +87,7 @@
     }, computed: {
       appName() {
         return this.$store.getters.appTitle
-      }
-    },
+      },
     isAuthenticated() {
         return (
           this.$store.getters.getUser !== null &&
@@ -107,6 +106,7 @@
           link: "/singin"
         }
         ];
+    }
     },methods: {
           userSignOut() {
             this.$store.dispatch("userSignOut");
